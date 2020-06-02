@@ -1,0 +1,320 @@
+html {
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: block;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit
+}
+
+dir {
+    display: block;
+}
+
+#headerImage {
+    width: 100%;
+    height: 500px;
+    vertical-align: middle;
+}
+
+#ContentPage {
+    padding: 8px 16px!important;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 980px;
+}
+
+#movieSection {
+    padding-top: 32px!important;
+    padding-bottom: 32px!important;
+    padding: 0.01em 16px;
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#movieSectionHeader {
+    padding-top: 16px!important;
+    padding-bottom: 16px!important;
+    border-bottom: 1px solid #ccc!important;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+    font-size: 24px;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.movieRow {
+    padding: 0 8px;
+}
+
+.movieCol {
+    padding: 0 8px;
+    margin-bottom: 16px!important;
+    float: left;
+}
+
+.movieCard {
+    position: relative;
+    border: 1px solid gray;
+}
+
+.movieCardBanner {
+    padding: 8px 16px!important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff!important;
+    background-color: #000!important;
+}
+
+.moviePoster {
+    border-style: none;
+    vertical-align: middle;
+}
+
+@media(min-width:600px) {
+    .movieCol {
+        width: 24.99%;
+    }
+}
+
+@media (max-width:993px) and (min-width:602px) {
+    .movieCol {
+        width: 49.99%;
+    }
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+.topnav a {
+    float: right;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    letter-spacing: 4px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #fff;
+    color: black;
+    float: left;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+.movieRating {
+    padding: 8px 16px!important;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff!important;
+    background-color: #000!important;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*#btnFavourite {
+    margin: 50px 0;
+    position: relative;
+    display: block;
+    color: #fbff00;
+    width: 0px;
+    height: 0px;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #fbff00;
+    border-left: 100px solid transparent;
+    transform: rotate(35deg);
+}
+
+#btnFavourite:before {
+    border-bottom: 80px solid #fbff00;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -45px;
+    left: -65px;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+}
+
+#btnFavourite:after {
+    position: absolute;
+    display: block;
+    color: #fbff00;
+    top: 3px;
+    left: -105px;
+    width: 0px;
+    height: 0px;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #fbff00;
+    border-left: 100px solid transparent;
+    transform: rotate(-70deg);
+    content: '';
+}*/
+
+#btnFavourite {
+    margin: 20px 0;
+    position: relative;
+    display: block;
+    color: #969790;
+    width: 0px;
+    height: 0px;
+    border-right: 25px solid transparent;
+    border-bottom: 17px solid #969790;
+    border-left: 25px solid transparent;
+    transform: rotate(35deg);
+}
+
+#btnFavourite:before {
+    border-bottom: 20px solid #969790;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -12px;
+    left: -15px;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+}
+
+#btnFavourite:after {
+    position: absolute;
+    display: block;
+    color: #969790;
+    top: 3px;
+    left: -25px;
+    width: 0px;
+    height: 0px;
+    border-right: 25px solid transparent;
+    border-bottom: 15px solid #969790;
+    border-left: 25px solid transparent;
+    transform: rotate(-70deg);
+    content: '';
+}
+
+#btnFavourite:hover {
+    color: #fbff00;
+    border-bottom: 17px solid #fbff00;
+}
+
+#btnFavourite:hover::before {
+    border-bottom: 20px solid #fbff00;
+}
+
+#btnFavourite:hover::after {
+    border-bottom: 15px solid #fbff00;
+}
+
+.rating-stars ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    margin-right: 50px;
+}
+
+.rating-stars ul>li.star {
+    display: inline-block;
+}
+
+.rating-stars ul>li.star>i.fa {
+    font-size: 2.5em;
+    color: #ccc;
+}
+
+.rating-stars ul>li.star.hover>i.fa {
+    color: #FFCC36;
+}
+
+.rating-stars ul>li.star.selected>i.fa {
+    color: #FF912C;
+}
+
+#heart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 15;
+    width: 15;
+    margin-right: 20px;
+}
+
+#heart:hover {
+    color: rgb(226, 25, 25);
+}
