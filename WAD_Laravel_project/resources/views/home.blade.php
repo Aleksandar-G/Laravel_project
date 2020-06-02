@@ -48,9 +48,11 @@
 
 
     </div>
-    
-@endsection
 
+    
     <script src="js/scripts.js"></script>
     <script src="js/favouriteScripts.js"></script>
     <script src="js/ratingScripts.js"></script>
+    
+@endsection
+
