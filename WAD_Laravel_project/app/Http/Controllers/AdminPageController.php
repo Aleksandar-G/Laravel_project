@@ -97,6 +97,7 @@ class AdminPageController extends Controller
 
         $movie->name = $newName;
 
+        $movie->update();
 
         Session::flash('flash_message', "Movie updated");
 

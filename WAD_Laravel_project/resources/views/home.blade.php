@@ -17,7 +17,6 @@
                     <div class="movieRating">{{ round($mv->avgRating, 1) }}</div>
                     <p class="fa fa-heart fa-fw" id="heart" value="{{ $mv->id }}"></p>
                     <section class='rating-widget'>
-
                         <!-- Rating Stars Box -->
                         <div class='rating-stars text-center'>
                             <ul class='stars' value="{{ $mv->id }}">

@@ -25,9 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
        
-        //var_dump( Auth::user()->name);
         if(Auth::user()->name == "admin")
         {
            return redirect("/adminPage");
@@ -38,8 +36,5 @@ class HomeController extends Controller
 
             return view('home',["movies" => $movies]);
         }
-=======
-        return view('home');
->>>>>>> f9b7f56611397c94d4f6bfaeeb3d9bd473c1323d
     }
 }
