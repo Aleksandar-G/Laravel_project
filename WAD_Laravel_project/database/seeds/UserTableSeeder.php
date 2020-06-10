@@ -2,8 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-
-class MovieSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,6 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Movie::class, 20)->create();
+        factory(App\User::class, 20)->create();
     }
 }

@@ -27,3 +27,7 @@ Route::get('/profile', 'ProfileController@index')->middleware('auth');
 //Route::get('/adminPage', 'AdminPageController@index')->middleware('auth');
 
 Route::resource('/adminPage', 'AdminPageController')->middleware('auth');
+
+Route::get('/Profile', 'ProfileController@index')->middleware('auth');
+
+Route::post('/AddFavorite', 'FavouriteController@store')->middleware('auth');

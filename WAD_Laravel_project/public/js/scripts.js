@@ -1,6 +1,3 @@
-let profileBtn = document.getElementById("Profile");
-let hamburgerMenu = document.getElementById("hamburgerMenu");
-let ratingStars = document.getElementsByClassName("star");
 /*let buttons = document.getElementsByTagName("p");
 
 for (let i = 0; i < buttons.length; i++) {
@@ -8,9 +5,9 @@ for (let i = 0; i < buttons.length; i++) {
     console.log(buttons[i]);
 }*/
 //console.log(profileBtn);
-profileBtn.addEventListener("click", this.loginCheck);
-hamburgerMenu.addEventListener("click", this.myFunction);
-document.getElementById("logOut").addEventListener("click", this.LogOut);
+//profileBtn.addEventListener("click", this.loginCheck);
+//hamburgerMenu.addEventListener("click", this.myFunction);
+//document.getElementById("logOut").addEventListener("click", this.LogOut);
 
 
 function myFunction() {
@@ -62,8 +59,7 @@ function loginLoadCheck() {
                 for (let i = 0; i < buttons.length; i++) {
                     buttons[i].style.display = "none";
                 }
-                for (let x = 0; x < ratingStars.length; x++)
-                {
+                for (let x = 0; x < ratingStars.length; x++) {
                     ratingStars[x].style.display = "none";
                 }
 
