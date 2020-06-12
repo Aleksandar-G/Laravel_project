@@ -29,7 +29,5 @@ class RatingController extends Controller
         $movie->avg_rating = $avg;
 
         $movie->update();
-        
-
     }
 }

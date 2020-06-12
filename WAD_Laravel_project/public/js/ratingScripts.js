@@ -2,10 +2,7 @@
 let fiveStarRating = document.getElementsByClassName("stars");
 console.log(fiveStarRating);
 for (let i = 0; i < fiveStarRating.length; i++) {
-    //fiveStarRating[i].getElementsByTagName("li").addEventListener('click', this.AddRating);
-    //fiveStarRating.getElementsByTagName("li")[i].addEventListener('click', this.AddRating);
     console.log(fiveStarRating[i]);
-    //console.log(fiveStarRating[i].getElementsByTagName("li").parentElement.getAttribute('value'));
     for (let x = 0; x < 5; x++) {
         fiveStarRating[i].getElementsByTagName("li")[x].addEventListener('click', this.AddRating);
     }
@@ -54,8 +51,6 @@ $(document).ready(function() {
         let selectedMovieId = selectedLiElement.parentNode.getAttribute('value');
         let ratingValue = e.target.parentElement.getAttribute('data-value');
 
-        console.log(selectedMovieId);
-        console.log(ratingValue);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
