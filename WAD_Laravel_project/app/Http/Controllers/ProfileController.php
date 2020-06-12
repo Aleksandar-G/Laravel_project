@@ -12,7 +12,7 @@ class ProfileController extends Controller
     {
         $movies = Movie::all();
 
-            return view('profile',["name" => Auth::user()->name,"movies" => $movies]);
+        return view('profile',["name" => Auth::user()->name,"movies" => $movies]);
     }
 
     public static function store()

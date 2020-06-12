@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+@if(Session::has('flash_message'))
+<div class="alert alert-success">
+    {{ Session::get('flash_message') }}
+</div>
+@endif
+@if(Session::has('error_message'))
+<div class="alert alert-danger">
+    {{ Session::get('error_message') }}
+</div>
+@endif
 <div id="ContentPage" style="max-width:1564px">
     <div id="movieSection">
         <h3 id="movieSectionHeader">Movies</h3>
@@ -16,10 +26,9 @@
             <img src="/images/Logo.png" alt="Movie" class="moviePoster" id="{{ $mv->name }}" style="width:99%">
             <div class="movieRating">{{ round($mv->avg_rating, 2) }}</div>
             <form action="/AddFavorite" method="POST">
-            @csrf
-            <!--<p class="fa fa-heart fa-fw" id="heart" value="{{ $mv->id }}">X</p>-->
-            <button class="fa fa-heart fa-fw" id="heart" type="submit">X</button>
-            <input type="hidden" name="movieId" value="{{ $mv->id }}">
+                @csrf
+                <button class="fa fa-heart fa-fw" id="heart" type="submit"></button>
+                <input type="hidden" name="movieId" value="{{ $mv->id }}">
             </form>
             <section class='rating-widget'>
                 <!-- Rating Stars Box -->
@@ -58,6 +67,9 @@
 @section('resources')
 <script type="text/javascript" src="js/scripts.js"></script>
 <script type="text/javascript" src="js/ratingScripts.js"></script>
+<script>
+$(".alert").fadeTo(3000, 500).slideUp(500, function() {
+            $(".alert").slideUp(500);
+        });
+</script>
 @endsection
-
-

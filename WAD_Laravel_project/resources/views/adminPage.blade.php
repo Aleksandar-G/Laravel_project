@@ -1,20 +1,23 @@
 @extends('layouts.adminPageLayout')
+
 @section('content')
 <ul>
     <li><a id="addPage">Add movie</a></li>
     <li><a id="deletePage">Delete movie</a></li>
     <li><a id="updatePage">Update movie</a></li>
 </ul>
+
 @if(Session::has('flash_message'))
 <div class="alert alert-success">
     {{ Session::get('flash_message') }}
 </div>
 @endif
 @if(Session::has('error_message'))
-<div class="alert alert-alert">
+<div class="alert alert-danger">
     {{ Session::get('error_message') }}
 </div>
 @endif
+
 <form id="addMovieForm" action="/adminPage" method="POST">
     @csrf
     <div class="container">
@@ -69,4 +72,13 @@
 
     </div>
 </form>
+
+<script>
+   $(".alert").fadeTo(3000, 500).slideUp(500, function() {
+            $(".alert").slideUp(500);
+        }); 
+</script>
 @endsection
+
+
+

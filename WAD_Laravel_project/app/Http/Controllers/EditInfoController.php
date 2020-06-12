@@ -3,30 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Movie;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 use Illuminate\Support\Facades\Session;
 
-class AdminPageController extends Controller
+class EditInfoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
     public function index()
     {
-        if (Gate::allows('admin-page')) {
-        $movies = Movie::all();
+        return view("editInfo",["user" => Auth::user()]);
 
-        return view("adminPage", ["movies" => $movies]);
-        }
-        else{
-            return redirect('/home');
-        }
     }
 
     /**
@@ -36,6 +28,7 @@ class AdminPageController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -46,24 +39,7 @@ class AdminPageController extends Controller
      */
     public function store(Request $request)
     {
-        $movieName = request("addMovie");
-
-        $movie = new Movie();
-
-        $movie->name = $movieName;
-        $movie->avg_rating = 0;
-        try {
-
-            $movie->save();
-            
-            Session::flash('flash_message', "Movie added");
-        } catch (\Exception $e) {
-
-            Session::flash('error_message', "Movie already added");
-        }
-
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -97,19 +73,25 @@ class AdminPageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $movieId = request("Updatemovie");
-        $newName = request("NewName");
+        $name = request("name");
+        $email = request("email");
+        $password = request("password");
 
-        $movie = Movie::findOrFail($movieId);
+        $user = User::findOrfail(Auth::user()->id);
 
-        $movie->name = $newName;
+        $user->name = $name;
+        $user->email = $email;
 
-        $movie->update();
+        if($password != null || $password != "")
+        {
+            $user->password = Hash::make($password);
+        }
 
-        Session::flash('flash_message', "Movie updated");
+        $user->update();
 
+        Session::flash('flash_message', "Information updated");
 
-        return redirect()->back();
+        return redirect('/home');
     }
 
     /**
@@ -120,14 +102,13 @@ class AdminPageController extends Controller
      */
     public function destroy($id)
     {
-        $movieId = request("DeleteMovie");
 
-        $movie = Movie::findOrFail($movieId);
+        $user = User::findOrFail(Auth::User()->id);
 
-        $movie->delete();
+        $user->delete();
 
-        Session::flash('flash_message', "movie deleted");
 
-        return redirect()->back();
+
+        return redirect('/');
     }
 }

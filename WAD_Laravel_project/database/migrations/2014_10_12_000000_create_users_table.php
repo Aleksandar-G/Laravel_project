@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer("type");
             $table->rememberToken();
             $table->timestamps();
         });
@@ -29,7 +30,8 @@ class CreateUsersTable extends Migration
             array(
                 'name' => 'admin',
                 'email' => 'admin@admin.nl',
-                'password' => Hash::make("admin")
+                'password' => Hash::make("admin"),
+                'type' => 1
             )
         );
     }

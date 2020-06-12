@@ -24,6 +24,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 
 <body>
@@ -65,6 +66,10 @@
                                 <a class="dropdown-item" href="/Profile" onclick="event.preventDefault();
                                             window.location.replace('/Profile');">
                                     Profile
+                                </a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     window.location.replace('/editInfo');">
+                                    Edit Information
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
