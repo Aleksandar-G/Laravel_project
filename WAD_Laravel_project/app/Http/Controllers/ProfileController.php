@@ -4,20 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Favourite;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
     public static function index()
     {
-        $movies = Movie::all();
+        $userId = Auth::user()->id;
 
-        return view('profile',["name" => Auth::user()->name,"movies" => $movies]);
-    }
+        $favouriteIDs = Favourite::where('user_id', $userId)->get('movie_id');
 
-    public static function store()
-    {
-        error_log("stana");
-        var_dump("hello");
+        $favouriteMovies = DB::table('movies')->whereIn('id', $favouriteIDs)->get();
+
+        return view('profile',["name" => Auth::user()->name,"movies" => $favouriteMovies]);
     }
 }

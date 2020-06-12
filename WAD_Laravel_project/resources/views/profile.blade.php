@@ -24,12 +24,8 @@
     </div>
 </div>
 @endforeach
-}
 
-// Close DB connection
-$conn = null;
 
-?>
 
 @endsection
 

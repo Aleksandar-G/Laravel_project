@@ -34,6 +34,6 @@ Route::get('/Profile', 'ProfileController@index')->middleware('auth');
 
 Route::post('/AddFavorite', 'FavouriteController@store')->middleware('auth');
 
-Route::post('/AddRating', 'RatingController@store')->name('AddRating.post');
+Route::post('/AddRating', 'RatingController@store')->name('AddRating.post')->middleware('auth');
 
 //Route::post('/AddRating/{postdata}', 'RatingController@OrderData')->middleware('auth');
