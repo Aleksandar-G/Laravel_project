@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 @if(Session::has('flash_message'))
 <div class="alert alert-success">
     {{ Session::get('flash_message') }}
@@ -67,9 +68,5 @@
 @section('resources')
 <script type="text/javascript" src="js/scripts.js"></script>
 <script type="text/javascript" src="js/ratingScripts.js"></script>
-<script>
-$(".alert").fadeTo(3000, 500).slideUp(500, function() {
-            $(".alert").slideUp(500);
-        });
-</script>
+
 @endsection

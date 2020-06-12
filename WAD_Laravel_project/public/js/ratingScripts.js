@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 
     /* 2. Action to perform on click */
-    $('.stars li').on('click', function() {
+    $('.stars li').on('click', function(e) {
         var onStar = parseInt($(this).data('value'), 10); // The star currently selected
         var stars = $(this).parent().children('li.star');
 
@@ -45,30 +45,30 @@ $(document).ready(function() {
         for (i = 0; i < onStar; i++) {
             $(stars[i]).addClass('selected');
         }
+
+
+        e.preventDefault();
+
+
+        let selectedLiElement = e.target.parentElement;
+        let selectedMovieId = selectedLiElement.parentNode.getAttribute('value');
+        let ratingValue = e.target.parentElement.getAttribute('data-value');
+
+        console.log(selectedMovieId);
+        console.log(ratingValue);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: "/AddRating",
+            data: { movie_id:selectedMovieId, rating:ratingValue },
+            success: function (data) {
+                location.reload();
+            }
+        });
     });
 });
-
-function AddRating(event) {
-    event.preventDefault();
-    let selectedLiElement = event.target.parentElement;
-    let selectedMovieId = selectedLiElement.parentNode.getAttribute('value');
-    let ratingValue = event.target.parentElement.getAttribute('data-value');
-
-    let xhrObject = new XMLHttpRequest();
-    let movieId = event.target.getAttribute('value');
-    xhrObject.onload = function() { //when readystate changes
-        if (xhrObject.status == 200) { //if server status was ok
-            //console.log(xhrObject.response);
-            if (xhrObject.response == 1) {
-                alert("Something went wrong");
-            } else {
-
-                alert("Review added successfully!");
-            }
-        }
-    }
-
-    xhrObject.open('POST', "../logic/movieRatings.php", true);
-    xhrObject.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhrObject.send("movieId=" + selectedMovieId + "&rating=" + ratingValue);
-}
